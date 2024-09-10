@@ -1,0 +1,67 @@
+<!-- cart/cart.html -->
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* Add CSS styles for flex container and items */
+		.product-list {
+			display: flex;
+			flex-wrap: wrap; /* Allow items to wrap to the next row if necessary */
+			justify-content: space-between; /* Space items evenly along the main axis */
+			list-style: none; /* Remove list styles */
+			padding: 0;
+		}
+
+		.product-item {
+
+			flex: 1; /* Grow to fill available space evenly */
+			/* Limit item width to avoid overcrowding */
+			margin: 10px; /* Add spacing between items */
+			border: 1px solid #ccc; /* Add a border for visual separation */
+			padding: 10px;
+			text-align: center;
+		}
+
+		/* Style the "Buy Now" button */
+		.buy-now-button {
+			display: block;
+			margin-top: 10px;
+			background-color: #007bff;
+			color: #fff;
+			text-decoration: none;
+			padding: 5px 10px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+
+
+
+
+<body>
+  <h2>Your Cart</h2>
+
+  {% if cart_items %}
+    <ul>
+      {% for item in cart_items %}
+        <li>
+          {{ item.product.name }} - Quantity: {{ item.quantity }}
+          <form method="post" action="{% url 'cart:remove_from_cart' item.product.id %}">
+            {% csrf_token %}
+            <button type="submit">Remove</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+
+</body>
+</html>
+
+
