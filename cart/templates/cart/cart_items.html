@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    {% if cart_items %}
+        <ul>
+            {% for item in cart_items %}
+                <li>
+                    {{ item.product.name }} - Quantity: {{ item.quantity }}
+                    <form class="remove-from-cart-form" data-product-id="{{ item.product.id }}" method="post">
+                        {% csrf_token %}
+                        <button type="button" class="remove-button">Remove</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+
+
+</body>
+</html>
