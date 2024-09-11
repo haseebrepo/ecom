@@ -1,0 +1,28 @@
+haseeb@sparehp:~$ cd
+.cache/     Documents/  .linuxmint/ Music/      Public/     Videos/
+.config/    Downloads/  .local/     Pictures/   Templates/
+Desktop/    .java/      .mozilla/   .pki/       .var/
+haseeb@sparehp:~$ cd Desktop/ecom/
+haseeb@sparehp:~/Desktop/ecom$ ls
+ecom  venv
+haseeb@sparehp:~/Desktop/ecom$ cd ..
+haseeb@sparehp:~/Desktop$ mkdir static
+haseeb@sparehp:~/Desktop$ python3 -m http.server ^C
+haseeb@sparehp:~/Desktop$ cd static/
+haseeb@sparehp:~/Desktop/static$ python3 -m http.server 9000
+
+
+haseeb@sparehp:~/Desktop/static$ pwd
+/home/haseeb/Desktop/static
+haseeb@sparehp:~/Desktop/static$ cd ../ecom/
+haseeb@sparehp:~/Desktop/ecom$ ./man^C
+haseeb@sparehp:~/Desktop/ecom$ ls
+ecom  venv
+haseeb@sparehp:~/Desktop/ecom$ cd ecom/
+haseeb@sparehp:~/Desktop/ecom/ecom$ ls
+cart  db.sqlite3  ecom  manage.py  media  product  venv
+haseeb@sparehp:~/Desktop/ecom/ecom$ ./manage.py collectstatic --no-input
+/usr/bin/env: ‘python’: No such file or directory
+haseeb@sparehp:~/Desktop/ecom/ecom$ ./manage.py collectstatic --no-input^C
+haseeb@sparehp:~/Desktop/ecom/ecom$ vi manage.py
+haseeb@sparehp:~/Desktop/ecom/ecom$ ./manage.py collectstatic --no-input
