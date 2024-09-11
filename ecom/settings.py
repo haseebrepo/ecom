@@ -39,7 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'product',
     'cart',
+    'channels',
+    'daphne',
 ]
+
+ASGI_APPLICATION = 'ecom.asgi.application'
+#uvicorn ecom.asgi:application --host 127.0.0.1 --port 8000
+#daphne ecom.asgi:application --host 127.0.0.1 --port 8000
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +141,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'http://localhost:9000/'
+STATIC_ROOT = '/home/haseeb/Desktop/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

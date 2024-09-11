@@ -101,10 +101,11 @@
 				var quantity = form.find('input[name="quantity"]').val();
 
 				$.ajax({
-					url: '/cart/add/' + productId + '/',
+					url: '{% url 'cart:add_to_cart' %}',
 					method: 'POST',
 					data: {
 						quantity: quantity,
+						productId: productId,
 						csrfmiddlewaretoken: form.find('input[name="csrfmiddlewaretoken"]').val()
 					},
 					success: function() {
@@ -157,6 +158,20 @@
 			bindRemoveButtons();
 		});
 	</script>
+
+	<script>
+		const productSocket = new WebSocket('ws://' + window.location.host + '/ws/products/');
+
+		productSocket.onmessage = function(e) {
+			const data = JSON.parse(e.data);
+			alert(data.message);  // Display notification (can be replaced with custom UI)
+		};
+
+		productSocket.onclose = function(e) {
+			console.error('WebSocket closed unexpectedly');
+		};
+	</script>
+
 
 
 </body>

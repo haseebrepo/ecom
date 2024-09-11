@@ -13,9 +13,9 @@ class ViewCartView(TemplateView):
         return render(request, 'cart/view_cart.html', {'cart_items': cart_items})
 
 class AddToCartView(View):
-    def post(self, request, product_id):
+    def post(self, request):
         quantity = int(request.POST.get('quantity', 1))
-        add_to_cart(request, product_id, quantity)
+        add_to_cart(request, request.POST.get('productId'), quantity)
         return redirect('cart:view_cart')
 
 class RemoveFromCartView(View):
