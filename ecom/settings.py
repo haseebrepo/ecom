@@ -36,11 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
     'product',
     'cart',
     'channels',
-    'daphne',
 ]
 
 ASGI_APPLICATION = 'ecom.asgi.application'
