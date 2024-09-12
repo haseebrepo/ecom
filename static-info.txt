@@ -26,3 +26,83 @@ haseeb@sparehp:~/Desktop/ecom/ecom$ ./manage.py collectstatic --no-input
 haseeb@sparehp:~/Desktop/ecom/ecom$ ./manage.py collectstatic --no-input^C
 haseeb@sparehp:~/Desktop/ecom/ecom$ vi manage.py
 haseeb@sparehp:~/Desktop/ecom/ecom$ ./manage.py collectstatic --no-input
+
+
+------------------------------
+playwright installation logs
+------------------------------
+
+(venv) pip install playwright
+Collecting playwright
+  Obtaining dependency information for playwright from https://files.pythonhosted.org/packages/75/4f/0a410deb48a0ff93107884a6cf06bbdbc97571f41b49e06cf7673c192264/playwright-1.46.0-py3-none-manylinux1_x86_64.whl.metadata
+  Downloading playwright-1.46.0-py3-none-manylinux1_x86_64.whl.metadata (3.5 kB)
+Collecting greenlet==3.0.3 (from playwright)
+  Obtaining dependency information for greenlet==3.0.3 from https://files.pythonhosted.org/packages/c6/1f/12d5a6cc26e8b483c2e7975f9c22e088ac735c0d8dcb8a8f72d31a4e5f04/greenlet-3.0.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading greenlet-3.0.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting pyee==11.1.0 (from playwright)
+  Obtaining dependency information for pyee==11.1.0 from https://files.pythonhosted.org/packages/16/cc/5cea8a0a0d3deb90b5a0d39ad1a6a1ccaa40a9ea86d793eb8a49d32a6ed0/pyee-11.1.0-py3-none-any.whl.metadata
+  Downloading pyee-11.1.0-py3-none-any.whl.metadata (2.8 kB)
+Requirement already satisfied: typing-extensions in ./venv/lib/python3.11/site-packages (from pyee==11.1.0->playwright) (4.12.2)
+Downloading playwright-1.46.0-py3-none-manylinux1_x86_64.whl (37.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.9/37.9 MB 11.6 MB/s eta 0:00:00
+Downloading greenlet-3.0.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (620 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 620.0/620.0 kB 11.1 MB/s eta 0:00:00
+Downloading pyee-11.1.0-py3-none-any.whl (15 kB)
+Installing collected packages: pyee, greenlet, playwright
+Successfully installed greenlet-3.0.3 playwright-1.46.0 pyee-11.1.0
+
+[notice] A new release of pip is available: 23.2.1 -> 24.2
+[notice] To update, run: pip install --upgrade pip
+(venv) playwright install
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+Downloading Chromium 128.0.6613.18 (playwright build v1129) from https://playwright.azureedge.net/builds/chromium/1129/chromium-linux.zip
+162.8 MiB [====================] 100% 0.0s
+Chromium 128.0.6613.18 (playwright build v1129) downloaded to /home/haseeb/.var/app/com.jetbrains.PyCharm-Community/cache/ms-playwright/chromium-1129
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+Downloading FFMPEG playwright build v1009 from https://playwright.azureedge.net/builds/ffmpeg/1009/ffmpeg-linux.zip
+2.6 MiB [====================] 100% 0.0s
+FFMPEG playwright build v1009 downloaded to /home/haseeb/.var/app/com.jetbrains.PyCharm-Community/cache/ms-playwright/ffmpeg-1009
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+Downloading Firefox 128.0 (playwright build v1458) from https://playwright.azureedge.net/builds/firefox/1458/firefox-ubuntu-20.04.zip
+85.6 MiB [====================] 100% 0.0s
+Firefox 128.0 (playwright build v1458) downloaded to /home/haseeb/.var/app/com.jetbrains.PyCharm-Community/cache/ms-playwright/firefox-1458
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+Downloading Webkit 18.0 (playwright build v2051) from https://playwright.azureedge.net/builds/webkit/2051/webkit-ubuntu-20.04.zip
+134.5 MiB [====================] 100% 0.0s
+Webkit 18.0 (playwright build v2051) downloaded to /home/haseeb/.var/app/com.jetbrains.PyCharm-Community/cache/ms-playwright/webkit-2051
+Playwright Host validation warning:
+╔══════════════════════════════════════════════════════╗
+║ Host system is missing dependencies to run browsers. ║
+║ Missing libraries:                                   ║
+║     libicudata.so.66                                 ║
+║     libicui18n.so.66                                 ║
+║     libicuuc.so.66                                   ║
+║     libwoff2dec.so.1.0.2                             ║
+║     libevent-2.1.so.7                                ║
+║     libjpeg.so.8                                     ║
+║     libwebp.so.6                                     ║
+║     libenchant-2.so.2                                ║
+║     libflite.so.1                                    ║
+║     libflite_usenglish.so.1                          ║
+║     libflite_cmu_grapheme_lang.so.1                  ║
+║     libflite_cmu_grapheme_lex.so.1                   ║
+║     libflite_cmu_indic_lang.so.1                     ║
+║     libflite_cmu_indic_lex.so.1                      ║
+║     libflite_cmulex.so.1                             ║
+║     libflite_cmu_time_awb.so.1                       ║
+║     libflite_cmu_us_awb.so.1                         ║
+║     libflite_cmu_us_kal16.so.1                       ║
+║     libflite_cmu_us_kal.so.1                         ║
+║     libflite_cmu_us_rms.so.1                         ║
+║     libflite_cmu_us_slt.so.1                         ║
+║     libpcre.so.3                                     ║
+║     libgudev-1.0.so.0                                ║
+║     libffi.so.7                                      ║
+║     libevdev.so.2                                    ║
+║     libx264.so                                       ║
+╚══════════════════════════════════════════════════════╝
+    at validateDependenciesLinux (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/server/registry/dependencies.js:216:9)
+    at async Registry._validateHostRequirements (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/server/registry/index.js:575:43)
+    at async Registry._validateHostRequirementsForExecutableIfNeeded (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/server/registry/index.js:673:7)
+    at async Registry.validateHostRequirementsForExecutablesIfNeeded (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/server/registry/index.js:662:43)
+    at async t.<anonymous> (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/cli/program.js:119:7)
