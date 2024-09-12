@@ -30,7 +30,9 @@ def add_to_cart(request, product_id, quantity=1):
 
     if not created:
         cart_item.quantity += quantity
-        cart_item.save()
+    else:
+        cart_item.quantity = quantity
+    cart_item.save()
 
 
 def remove_from_cart(request, product_id):
