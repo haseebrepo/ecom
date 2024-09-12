@@ -70,107 +70,63 @@
 				<p>{{ product.description }}</p>
 				<p>Price: ${{ product.price }}</p>
 
-				<form class="add-to-cart-form" method="post" data-product-id="{{ product.id }}">
+				<form hx-post="{% url 'cart:add_to_cart' %}"
+					  hx-target="#cart-items"
+					  hx-swap="innerHTML"
+					  method="post">
 					{% csrf_token %}
 					<input name="quantity" value="1">
-					<button type="button" class="buy-now-button">Add to Cart</button>
+    				<input type="hidden" name="productId" value="{{ product.id }}">
+					<button type="submit" class="buy-now-button">Add to Cart</button>
 				</form>
+
 
 			</li>
 		{% endfor %}
 	</ul>
 
-	<div id="cart-sidebar" class="cart-sidebar">
-    <div class="cart-content">
-        <h2>Your Cart</h2>
-        <div id="cart-items">
-            <!-- gonna load cart items through ajax -->
-        </div>
-        <button id="close-cart">Close</button>
-    </div>
-	</div>
+<div id="cart-sidebar" class="cart-sidebar">
+  <p>Your Cart</p>
+  <div id="cart-items">
+    <!-- Cart items will be dynamically loaded here -->
+
+  </div>
+  <button id="close-cart">Close</button>
+</div>
 
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 	<script>
-		$(document).ready(function() {
-			// Handle Add to Cart button click
-			$('.add-to-cart-form button').on('click', function() {
-				var form = $(this).closest('form');
-				var productId = form.data('product-id');
-				var quantity = form.find('input[name="quantity"]').val();
-
-				$.ajax({
-					url: '{% url 'cart:add_to_cart' %}',
-					method: 'POST',
-					data: {
-						quantity: quantity,
-						productId: productId,
-						csrfmiddlewaretoken: form.find('input[name="csrfmiddlewaretoken"]').val()
-					},
-					success: function() {
-						// Load cart items after adding product
-						loadCartItems();
-						// Show cart sidebar
-						$('#cart-sidebar').addClass('active');
-					}
-				});
-			});
-
-			// Load cart items via AJAX
-			function loadCartItems() {
-				$.ajax({
-					url: '/cart/',
-					method: 'GET',
-					success: function(data) {
-						$('#cart-items').html(data);  // Update cart sidebar with new items
-						bindRemoveButtons();  // Rebind the remove buttons after loading new content
-					}
-				});
+		document.addEventListener('htmx:afterOnLoad', function(evt) {
+			if (evt.detail.target.id === 'cart-items') {
+				document.getElementById('cart-sidebar').classList.add('active');
 			}
-
-			// Handle Remove from Cart button click
-			function bindRemoveButtons() {
-				$('.remove-from-cart-form .remove-button').on('click', function() {
-					var form = $(this).closest('form');
-					var productId = form.data('product-id');
-
-					$.ajax({
-						url: '/cart/remove/' + productId + '/',
-						method: 'POST',
-						data: {
-							csrfmiddlewaretoken: form.find('input[name="csrfmiddlewaretoken"]').val()
-						},
-						success: function() {
-							// Reload the cart items after removing product
-							loadCartItems();
-						}
-					});
-				});
-			}
-
-			// Handle close button
-			$('#close-cart').on('click', function() {
-				$('#cart-sidebar').removeClass('active');
-			});
-
-			// Call bindRemoveButtons to initialize event binding
-			bindRemoveButtons();
 		});
+
+
+
 	</script>
+	<script>
+    document.getElementById('close-cart').addEventListener('click', function() {
+        document.getElementById('cart-sidebar').classList.remove('active');
+    });
+</script>
+
 
 	<script>
 		const productSocket = new WebSocket('ws://' + window.location.host + '/ws/products/');
 
 		productSocket.onmessage = function(e) {
 			const data = JSON.parse(e.data);
-			alert(data.message);  // Display notification (can be replaced with custom UI)
+			alert(data.message);
 		};
 
 		productSocket.onclose = function(e) {
 			console.error('WebSocket closed unexpectedly');
 		};
 	</script>
+
+	<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 
 
 
