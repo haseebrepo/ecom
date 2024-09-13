@@ -129,8 +129,10 @@ https://www.perplexity.ai/search/placed-dockerfile-with-manage-YF4sHYaZTnOPEoLOr
 
 
 
-
+minikube
 eval $(minikube docker-env)
 docker build -t ecom-app .
 kubectl apply -f ecom-deployment.yaml
 kubectl apply -f ecom-service.yaml
+kubectl get pods
+minikube service ecom-app
