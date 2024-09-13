@@ -27,7 +27,10 @@ DEBUG = True
 
 SITE_URL = 'http://127.0.0.1:8000'
 
-ALLOWED_HOSTS = []
+# import socket
+# ALLOWED_HOSTS = [socket.gethostbyname('localhost')]
+# print("here are the allowed hosts")
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

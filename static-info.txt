@@ -106,3 +106,31 @@ Playwright Host validation warning:
     at async Registry._validateHostRequirementsForExecutableIfNeeded (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/server/registry/index.js:673:7)
     at async Registry.validateHostRequirementsForExecutablesIfNeeded (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/server/registry/index.js:662:43)
     at async t.<anonymous> (/home/haseeb/Desktop/ecom/ecom/venv/lib/python3.11/site-packages/playwright/driver/package/lib/cli/program.js:119:7)
+
+https://www.perplexity.ai/search/placed-dockerfile-with-manage-YF4sHYaZTnOPEoLOrw.wzQ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+eval $(minikube docker-env)
+docker build -t ecom-app .
+kubectl apply -f ecom-deployment.yaml
+kubectl apply -f ecom-service.yaml
